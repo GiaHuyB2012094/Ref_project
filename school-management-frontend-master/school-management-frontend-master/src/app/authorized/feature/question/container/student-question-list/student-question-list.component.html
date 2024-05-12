@@ -1,0 +1,18 @@
+<div>
+  <mat-divider class="my-3"></mat-divider>
+  <app-student-question-item
+    *ngFor="let question of getDisplayedQuestions(); let i = index"
+    [question]="question"
+    [questionNumber]="(page - 1) * itemsPerPage + i + 1"
+    [isSubmitted]="exercise.isSubmitted"
+    [isGraded]="exercise.isGraded"
+    [(snapshotQuestion)]="studentExerciseSubmitDTO.snapshotQuestions[(page - 1) * itemsPerPage + i]"></app-student-question-item>
+
+  <mat-paginator
+    *ngIf="totalItems > 0"
+    [pageSizeOptions]="[5]"
+    [pageIndex]="page - 1"
+    [pageSize]="itemsPerPage"
+    [length]="totalItems"
+    (page)="handlePageChange($event)"></mat-paginator>
+</div>

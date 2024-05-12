@@ -1,0 +1,51 @@
+<div class="background">
+  <div *ngIf="exercise" class="exercise-container">
+    <app-exercise-detail-header
+      #exerciseDetailHeader
+      (gradeClick)="bulkGrade()"
+      (onRemoveClicked)="removeQuestionsFromExercise()"
+      (onActivateClicked)="activateExercise()"
+      (onRedoClicked)="redoExercise()"
+      (onSync)="sync()"
+      (onTimeOut)="onTimeOut()"
+      [isYourCourse]="isYourCourse()"
+      [totalItems]="totalItems"
+      [exercise]="exercise"
+      [exerciseId]="exerciseId"
+      [selectedQuestionIds]="selectedQuestionIds"
+      [isStudent]="isStudent()"></app-exercise-detail-header>
+
+    <div *ngIf="!isStudent() || exercise.isStartDoing" class="exercise-body">
+      <app-teacher-question-list
+        *ngIf="!isStudent()"
+        #questionList
+        [isActive]="exercise.isActive"
+        [(totalItems)]="totalItems"
+        [isYourCourse]="isYourCourse()"
+        [(selectedQuestionIds)]="selectedQuestionIds"
+        (onEdit)="routeToQuestion($event)"
+        [exerciseId]="exerciseId"></app-teacher-question-list>
+
+      <app-student-question-list
+        #studentQuestionList
+        *ngIf="isStudent() && (!exercise.isSubmitted || exercise.point)"
+        [exercise]="exercise"
+        [(studentExerciseSubmitDTO)]="studentExerciseSubmitDTO"></app-student-question-list>
+
+      <app-exercise-detail-done *ngIf="isStudent() && exercise.isSubmitted && !exercise.point"></app-exercise-detail-done>
+    </div>
+
+    <div *ngIf="!isStudent()" class="exercise-submitteed-list">
+      <app-exercise-submitted-list #exerciseSubmittedList [exerciseId]="exerciseId"></app-exercise-submitted-list>
+    </div>
+
+    <div class="exercise-footer">
+      <app-primary-button *ngIf="isStudent() && exercise.isStartDoing && !exercise.isSubmitted" (click)="confirmAndSubmitExercise()"
+        >Nộp bài</app-primary-button
+      >
+      <app-primary-button *ngIf="isStudent() && !exercise.isStartDoing" (click)="storeStudentExercise()"
+        >Bắt đầu làm bài</app-primary-button
+      >
+    </div>
+  </div>
+</div>

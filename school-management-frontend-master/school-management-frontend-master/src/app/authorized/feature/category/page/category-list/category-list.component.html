@@ -1,0 +1,23 @@
+<h1>Danh sách danh mục</h1>
+<div class="toolbar">
+  <app-search-bar label="Tìm theo tên" [value]="search$.value" (valueChange)="setSearch($event)"></app-search-bar>
+  <app-primary-button [routerLink]="['/category/create']">Thêm danh mục</app-primary-button>
+</div>
+<div class="list">
+  <ng-container *ngFor="let category of categories">
+    <app-category-item
+      role="button"
+      [isYourCategory]="isYourCategory(category)"
+      (onDelete)="delete(category.id)"
+      [category]="category"
+      [routerLink]="['/category', category.id]"></app-category-item>
+  </ng-container>
+</div>
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10]"
+  [pageIndex]="page - 1"
+  [pageSize]="itemsPerPage"
+  [length]="totalItems"
+  (page)="handlePageChange($event)"
+  aria-label="Select page of users"></mat-paginator>

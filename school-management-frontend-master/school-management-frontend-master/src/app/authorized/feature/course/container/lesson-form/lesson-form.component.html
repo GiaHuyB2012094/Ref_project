@@ -1,0 +1,23 @@
+<div class="form">
+  <h1 class="title">Tạo bài học</h1>
+  <form (ngSubmit)="submit()">
+    <app-text-input-group
+      (valueChange)="onTitleChange($event)"
+      [label]="'Tiêu đề'"
+      [name]="'title'"
+      [(value)]="title"
+      [required]="true"></app-text-input-group>
+
+    <app-text-input-group
+      (valueChange)="onVideoUrlChange($event)"
+      [label]="'Đường dẫn video'"
+      [name]="'videoUrl'"
+      [(value)]="videoUrl"></app-text-input-group>
+
+    <app-text-editor label="Nội dung bài học" [(value)]="body" (valueChange)="onBodyChange($event)"></app-text-editor>
+
+    <div class="d-flex">
+      <app-primary-button [disabled]="!title?.trim()">{{ buttonAction }}</app-primary-button>
+    </div>
+  </form>
+</div>

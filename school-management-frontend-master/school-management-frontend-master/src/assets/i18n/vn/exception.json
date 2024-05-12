@@ -1,0 +1,133 @@
+{
+  "AUTH": {
+    "USERNAME_OR_PASSWORD_INVALID": "Tên đăng nhập hoặc mật khẩu không đúng"
+  },
+  "CATEGORY": {
+    "ALREADY_EXIST": "Danh mục đã tồn tại",
+    "NAME": {
+      "IS_NOT_EMPTY": "Tên danh mục không được để trống"
+    },
+    "DESCRIPTION": {
+      "IS_NOT_EMPTY": "Mô tả danh mục không được để trống"
+    }
+  },
+  "COURSE": {
+    "ALREADY_EXIST": "Khóa học đã tồn tại",
+    "NOT_FOUND": "Khóa học không tìm thấy",
+    "DOES_NOT_EXIST": "Khóa học không tồn tại",
+    "GET_DETAIL_FAILED": "Không thể truy cập khóa học, vui lòng thử lại sau",
+    "NAME": {
+      "IS_NOT_EMPTY": "Tên khóa học không được để trống"
+    }
+  },
+  "SECTION": {
+    "GET_LIST_FAILED": "Không thể lấy danh sách chương, vui quay lại sau",
+    "NAME": {
+      "IS_NOT_EMPTY": "Chương không được để trống"
+    }
+  },
+  "LESSON": {
+    "DOES_NOT_EXIST": "Bài học không tồn tại",
+    "TITLE": {
+      "IS_NOT_EMPTY": "Tên bài học không được trống"
+    },
+    "BODY": {
+      "IS_NOT_EMPTY": "Nội dung bài học không được trống"
+    },
+    "SECTION_ID": {
+      "IS_NOT_EMPTY": "Id phần học không được để trống"
+    },
+    "VIDEO_URL": {
+      "FORMAT_IS_NOT_VALID": "Định dạng địa chỉ không hợp lệ",
+      "IS_NOT_BLANK": "Địa chỉ video không được chứa rỗng"
+    },
+    "INVALID_VIDEO_URL": "Định dạng địa chỉ video không hợp lệ"
+  },
+  "ASSIGNMENT": {
+    "ALREADY_EXIST": "Bài tập đã tồn tại",
+    "NAME": {
+      "IS_NOT_EMPTY": "Tên bài giao không được trống"
+    },
+    "DESCRIPTION": {
+      "IS_NOT_EMPTY": "Nội dung bài giao không được trống"
+    },
+    "DUE_DATE": {
+      "IS_NOT_EMPTY": "Hạn nộp bài không được trống"
+    }
+  },
+  "COURSE_STUDENT": {
+    "NOT_REGISTERED": "Học sinh chưa đăng ký vào khóa học này"
+  },
+  "MIME": {
+    "FORMAT_IS_NOT_VALID": "Định dạng đính kèm không hợp lệ"
+  },
+  "ASSIGNMENT_SUBMIT_GRADE": {
+    "GRADE": {
+      "IS_NOT_EMPTY": "Điểm không được trống",
+      "MAX_IS_100": "Điểm tối đa là 100",
+      "MIN_IS_0": "Điểm tối thieu là 0"
+    }
+  },
+  "EXERCISE": {
+    "NAME": {
+      "IS_NOT_EMPTY": "Tên bài trắc nghiệm không được trống"
+    },
+    "DIFFICULTY_ID": {
+      "IS_NOT_EMPTY": "Độ khó không được trống"
+    },
+    "LESSON_ID": {
+      "IS_NOT_EMPTY": "Bài học không được trống"
+    },
+    "CANNOT_ACTIVATE_WITHOUT_QUESTION": "Không thể kích hoạt bài tập không có câu hỏi nào"
+  },
+  "QUESTION": {
+    "TEXT": {
+      "IS_NOT_EMPTY": "Tiêu đề câu hỏi không được trống"
+    },
+    "DIFFICULTY_ID": {
+      "IS_NOT_EMPTY": "Độ khó không được trống"
+    },
+    "OPTIONS": {
+      "IS_NOT_EMPTY": "Câu trả lời không được trống",
+      "AT_LEAST_TWO_OPTION_IS_REQUIRED": "Phải có ít nhất hai câu trả lời"
+    },
+    "ALREADY_EXIST": "Câu hỏi đã tồn tại"
+  },
+  "QUESTION_OPTION": {
+    "IS_CORRECT_DUPLICATE": "Câu hỏi đơn không thể có nhiều câu trả lời đúng",
+    "TEXT_DUPLICATE": "Câu trả lời không được trùng nhau",
+    "IS_CORRECT_TRUE_REQUIRED": "Phải có ít nhất một câu trả lời đúng",
+    "IS_CORRECT_DIVERSITY_REQUIRED": "Phải có đúng và sai"
+  },
+  "QUESTION_CATEGORY": {
+    "NAME": {
+      "IS_NOT_EMPTY": "Danh mục câu hỏi không được để trống"
+    }
+  },
+  "COURSE_OUTCOME": {
+    "ALREADY_EXIST": "Đã tồn tại"
+  },
+  "USER": {
+    "USERNAME_ALREADY_EXISTS": "Tên đăng nhập đã tồn tại",
+    "EMAIL_ALREADY_EXISTS": "Email đã tồn tại",
+    "PHONE_ALREADY_EXISTS": "Số điện thoại đã được sử dụng",
+    "PHONE": {
+      "FORMAT_IS_NOT_VALID": "Số điện thoại không hợp lệ"
+    },
+    "EMAIL": {
+      "FORMAT_IS_NOT_VALID": "Email không hợp lệ"
+    },
+    "USERNAME": {
+      "LENGTH_5": "Username ít nhất 5 ký tự"
+    },
+    "PASSWORD": {
+      "LENGTH_5": "Password ít nhất 5 ký tự"
+    },
+    "DISPLAY_NAME": {
+      "IS_NOT_EMPTY": "Tên không được rỗng"
+    }
+  },
+  "EXERCISE_SUBMIT_GRADE": {
+    "DOES_NOT_EXIST": "Chưa có bài nộp nào để chấm điểm"
+  }
+}

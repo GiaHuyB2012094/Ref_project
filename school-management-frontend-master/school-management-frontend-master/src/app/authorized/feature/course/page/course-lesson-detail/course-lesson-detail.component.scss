@@ -1,0 +1,59 @@
+.lesson-detail {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .header {
+    background: #29303b;
+    color: #fff;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .body {
+    display: flex;
+    flex: 1; /* Take up the remaining height */
+    overflow: hidden; /* Prevent the body itself from scrolling */
+
+    .left {
+      flex: 6; /* Takes up 3 parts of the available space */
+      overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .right {
+      flex: 2; /* Takes up 2 parts of the available space */
+      overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .info {
+      padding: 10px;
+    }
+
+    .list-title {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 15px;
+    }
+
+    .panel {
+      padding: 10px 30px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .icon {
+    vertical-align: middle;
+    cursor: pointer; /* Indicates the icon is clickable */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .lesson-detail .body {
+    flex-direction: column;
+  }
+}

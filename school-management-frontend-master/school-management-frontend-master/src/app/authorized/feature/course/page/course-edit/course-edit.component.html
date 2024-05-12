@@ -1,0 +1,32 @@
+<div class="form" *ngIf="course && categories && levels">
+  <h1 class="title">Cập nhật thông tin khóa học</h1>
+  <form (ngSubmit)="update()">
+    <app-text-input-group icon="school" [name]="'name'" [label]="'Tên'" [(value)]="dto.name" [required]="true"></app-text-input-group>
+    <app-select-list
+      icon="bar_chart"
+      [required]="true"
+      [name]="'level'"
+      [options]="levels"
+      [label]="'Cấp độ'"
+      [(selected)]="dto.levelId"></app-select-list>
+    <app-text-editor icon="description" label="Nội dung" [(value)]="dto.description"></app-text-editor>
+    <app-select-multiple-search
+      icon="category"
+      *ngIf="categories && categories.length > 0"
+      [placeholder]="'Danh mục'"
+      [options]="categories"
+      [(selected)]="dto.categoryIds"></app-select-multiple-search>
+    <app-file-input-group
+      icon="image"
+      [accept]="'image/*'"
+      [value]="image"
+      (valueChange)="onFileInputChange($event)"
+      [label]="'Hình ảnh'"></app-file-input-group>
+
+    <div class="image-preview" *ngIf="course.imageUrl" [ngStyle]="{ 'background-image': 'url(' + course.imageUrl + ')' }"></div>
+    <app-number-input-group icon="schedule" [label]="'Giờ'" [name]="'hours'" [(value)]="dto.hours"></app-number-input-group>
+    <div class="d-flex justify-content-end mt-3">
+      <app-primary-button [disabled]="!dto.name?.trim() || !dto.levelId">Cập nhật</app-primary-button>
+    </div>
+  </form>
+</div>

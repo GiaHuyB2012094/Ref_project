@@ -1,0 +1,22 @@
+<div>
+  <div class="header" *ngIf="questionCategory">
+    <h1>
+      {{ questionCategory.name }}
+      <mat-icon class="icon edit">edit</mat-icon>
+    </h1>
+    <app-primary-button [routerLink]="['/question/create']" [queryParams]="{ questionCategoryId: questionCategoryId }"
+      >Tạo câu hỏi</app-primary-button
+    >
+
+    <app-secondary-button (click)="chooseQuestions()" *ngIf="selectedQuestionIds?.length > 0">Chọn</app-secondary-button>
+  </div>
+  <app-question-list
+    (onEdit)="routeToQuestion($event)"
+    [showTrash]="true"
+    [showCheckBox]="true"
+    [excludeExerciseId]="exerciseId"
+    [(selectedQuestionIds)]="selectedQuestionIds"
+    [questionCategoryId]="questionCategoryId"
+    (onSelectClicked)="chooseQuestions()"
+    (onDelete)="deleteQuestion($event)"></app-question-list>
+</div>

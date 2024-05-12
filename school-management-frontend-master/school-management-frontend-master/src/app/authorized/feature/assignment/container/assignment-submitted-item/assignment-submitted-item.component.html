@@ -1,0 +1,11 @@
+<div class="file-submission" *ngIf="attachment" [matTooltip]="attachment.name">
+  <img class="file-image" [src]="attachment.createdByImageUrl" [alt]="attachment.createdByDisplayName" />
+  <div class="file-info">
+    <span class="file-title">{{ attachment.name }}</span>
+    <span class="file-status">{{ attachment.createdAt | date: 'dd/MM/yyyy' }}</span>
+  </div>
+
+  <div class="buttons">
+    <mat-icon class="download" role="button">download</mat-icon>
+  </div>
+</div>

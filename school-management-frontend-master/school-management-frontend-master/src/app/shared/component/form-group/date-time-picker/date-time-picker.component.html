@@ -1,0 +1,16 @@
+<mat-form-field>
+  <mat-icon *ngIf="icon" class="icon">{{ icon }}</mat-icon>
+  <label [for]="name" class="form-label label" [class.asterix]="required">{{ label }}</label>
+  <mtx-datetimepicker
+    #datetimePicker
+    [type]="type"
+    [mode]="mode"
+    [multiYearSelector]="multiYearSelector"
+    [startView]="startView"
+    [twelvehour]="twelvehour"
+    [timeInterval]="timeInterval"
+    [touchUi]="touchUi"
+    [timeInput]="timeInput"></mtx-datetimepicker>
+  <input [mtxDatetimepicker]="datetimePicker" [(ngModel)]="datetime" (ngModelChange)="onDatetimeChange($event)" matInput />
+  <mtx-datetimepicker-toggle [for]="datetimePicker" matSuffix></mtx-datetimepicker-toggle>
+</mat-form-field>

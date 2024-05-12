@@ -1,0 +1,31 @@
+<div *ngIf="lesson">
+  <div>
+    <app-lesson-download
+      [isStudent]="isStudent()"
+      [isYourCourse]="isYourCourse()"
+      (onDelete)="onDelete()"
+      *ngFor="let attachment of attachments"
+      [attachment]="attachment"></app-lesson-download>
+
+    <mat-paginator
+      *ngIf="totalItems > 0"
+      [pageSizeOptions]="[5, 10]"
+      [pageIndex]="page - 1"
+      [pageSize]="itemsPerPage"
+      [length]="totalItems"
+      (page)="handlePageChange($event)"
+      aria-label="Select page of users"></mat-paginator>
+  </div>
+
+  <form *ngIf="!isStudent() && isYourCourse()" (ngSubmit)="upload()">
+    <app-files-input-group
+      accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*"
+      [files]="attachmentsCreating"
+      (filesChange)="onFilesChange($event)"
+      [label]="'Đính kèm'"></app-files-input-group>
+
+    <div class="d-flex justify-content-end">
+      <app-primary-button [disabled]="!attachmentsCreating">Tải lên</app-primary-button>
+    </div>
+  </form>
+</div>

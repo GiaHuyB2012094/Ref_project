@@ -1,0 +1,75 @@
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  padding: 10px 25px;
+  overflow-y: auto; /* Ensures content within can scroll if too long */
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  //
+  // font-size: 2rem;
+  // color: lightgray;
+}
+
+mat-sidenav-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 65px);
+}
+
+mat-sidenav-content {
+  flex-grow: 1;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  &.active {
+    // modern blue
+    background-color: rgba(63, 81, 181, 0.5);
+    color: #333; /* Example text color */
+    font-weight: bold; /* Make the text bold */
+  }
+}
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+  color: black;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}

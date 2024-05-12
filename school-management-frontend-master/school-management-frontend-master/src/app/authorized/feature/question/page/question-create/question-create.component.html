@@ -1,0 +1,29 @@
+<div class="form">
+  <h1 class="title">Tạo câu hỏi</h1>
+  <form (ngSubmit)="store()">
+    <app-text-input-group
+      icon="help_outline"
+      [label]="'Tiêu đề'"
+      [(value)]="dto.text"
+      [name]="'text'"
+      [required]="true"></app-text-input-group>
+
+    <app-select-list
+      icon="star"
+      [options]="difficulties"
+      [(selected)]="dto.difficultyId"
+      [label]="'Độ khó'"
+      [name]="'difficulty'"
+      [required]="true"></app-select-list>
+
+    <app-question-option-create
+      icon="list"
+      [required]="true"
+      [(options)]="dto.options"
+      [label]="'Câu trả lời'"
+      [name]="'option'"></app-question-option-create>
+    <div class="d-flex justify-content-end">
+      <app-primary-button [disabled]="!dto.text?.trim() || !dto.difficultyId || !dto.options?.length">Tạo</app-primary-button>
+    </div>
+  </form>
+</div>

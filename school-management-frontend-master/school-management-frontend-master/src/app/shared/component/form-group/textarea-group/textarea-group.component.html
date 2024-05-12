@@ -1,0 +1,14 @@
+<div class="mb-3">
+  <mat-icon *ngIf="icon" class="icon">{{ icon }}</mat-icon>
+  <label [for]="name" class="form-label" [class.asterix]="required">{{ label }}</label>
+  <textarea
+    spellcheck="false"
+    matInput
+    [id]="name"
+    [name]="name"
+    [(ngModel)]="value"
+    (ngModelChange)="onValueChange($event)"
+    #usernameRef="ngModel"
+    class="form-control">
+  </textarea>
+</div>

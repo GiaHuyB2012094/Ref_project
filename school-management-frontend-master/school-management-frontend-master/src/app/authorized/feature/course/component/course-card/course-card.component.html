@@ -1,0 +1,35 @@
+<div class="course-card" *ngIf="course">
+  <app-image-card
+    [thumnailText]="course.name"
+    [id]="course.id"
+    class="image-card"
+    role="button"
+    [option]="option"
+    [isEdit]="isEdit"
+    [src]="course.imageUrl"
+    [alt]="course.name"></app-image-card>
+
+  <div class="course-info">
+    <div>
+      <h5 class="course-name">{{ course.name }}</h5>
+      <div>
+        <mat-icon class="icon">group</mat-icon>
+        {{ course.studentCount }}
+      </div>
+    </div>
+
+    <div class="buttons" *ngIf="!isStudent() && isYourCourse()">
+      <mat-icon (click)="delete($event)" class="icon delete" *ngIf="option.haveDelete" aria-label="Delete">delete</mat-icon>
+      <mat-icon (click)="remove($event)" class="icon close" *ngIf="option.haveClose" aria-label="Close">close</mat-icon>
+    </div>
+  </div>
+
+  <!-- <div class="course-info"> -->
+  <!--   <div *ngIf="assignmentIcon" class="assignment-button"> -->
+  <!--     <mat-icon class="assignment" role="button" (click)="assignmentClick($event)" -->
+  <!--       >assignment -->
+  <!--       <span *ngIf="course.unsubmittedPendingCount > 0" class="assignment-count">{{ course.unsubmittedPendingCount }}</span> -->
+  <!--     </mat-icon> -->
+  <!--   </div> -->
+  <!-- </div> -->
+</div>

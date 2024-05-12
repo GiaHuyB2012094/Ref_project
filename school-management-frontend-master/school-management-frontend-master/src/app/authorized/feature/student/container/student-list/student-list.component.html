@@ -1,0 +1,16 @@
+<app-search-bar label="Tìm kiếm tên, sdt, email" [value]="search$.value" (valueChange)="setSearch($event)"></app-search-bar>
+<div class="student-list">
+  <app-student-item
+    *ngFor="let student of students"
+    [student]="student"
+    (onDelete)="deleteStudent(student.id)"
+    (onEdit)="routeToEdit(student.id)"></app-student-item>
+</div>
+
+<mat-paginator
+  *ngIf="totalItems > 0"
+  [pageSizeOptions]="[4, 8]"
+  [pageIndex]="page - 1"
+  [pageSize]="itemsPerPage"
+  [length]="totalItems"
+  (page)="handlePageChange($event)"></mat-paginator>

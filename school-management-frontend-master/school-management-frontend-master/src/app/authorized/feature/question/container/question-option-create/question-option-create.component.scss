@@ -1,0 +1,40 @@
+.add {
+  border: 1px dotted black;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio {
+  display: flex;
+  gap: 15px;
+}
+
+.create {
+  position: relative;
+  .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+  }
+}
+
+.asterix:after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+  font-size: 30px;
+  // push down
+  vertical-align: -20%;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}

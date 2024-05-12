@@ -1,0 +1,25 @@
+<div class="question-category-list">
+  <div class="d-flex justify-content-between">
+    <h1>Danh mục câu hỏi</h1>
+    <app-primary-button [routerLink]="'/question/question-category/create'">Tạo danh mục câu hỏi</app-primary-button>
+  </div>
+  <mat-divider class="my-3"></mat-divider>
+
+  <app-search-bar label="Tìm theo tên" [value]="search$.value" (valueChange)="setSearch($event)"></app-search-bar>
+
+  <div class="list">
+    <app-question-category-item
+      *ngFor="let questionCategory of questionCategories"
+      (onDelete)="delete(questionCategory.id)"
+      (click)="questionCategoryItemClicked(questionCategory.id)"
+      [questionCategory]="questionCategory"></app-question-category-item>
+  </div>
+
+  <mat-paginator
+    *ngIf="totalItems > 0"
+    [pageSizeOptions]="[5, 10]"
+    [pageIndex]="page - 1"
+    [pageSize]="itemsPerPage"
+    [length]="totalItems"
+    (page)="handlePageChange($event)"></mat-paginator>
+</div>

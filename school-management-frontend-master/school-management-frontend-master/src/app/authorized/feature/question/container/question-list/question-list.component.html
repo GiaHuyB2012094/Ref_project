@@ -1,0 +1,36 @@
+<div>
+  <mat-divider class="my-3"></mat-divider>
+
+  <div class="toolbar">
+    <app-search-bar *ngIf="showSearchBar" [value]="search$.value" label="Tìm theo tên" (valueChange)="setSearch($event)"></app-search-bar>
+
+    <app-question-list-difficulty-filter
+      *ngIf="showDifficultyFilter"
+      class="filter"
+      (onFilter)="applyFilter($event)"></app-question-list-difficulty-filter>
+  </div>
+
+  <app-question-item
+    [showDifficulty]="showDifficulty"
+    [showTrash]="showTrash"
+    [showEdit]="showEdit"
+    [showCheckBox]="showCheckBox"
+    (onCorrectOption)="loadData(getDto())"
+    (onUncorrectOption)="loadData(getDto())"
+    (onRemoveOption)="loadData(getDto())"
+    (onEditClick)="edit($event)"
+    (onDeleteClick)="delete($event)"
+    [selected]="inExercise && getSelected(question.id)"
+    (selectedChange)="checkBoxChecked($event, question.id)"
+    *ngFor="let question of questions; let i = index"
+    [questionNumber]="inExercise ? i + 1 : question.id"
+    [question]="question"></app-question-item>
+
+  <mat-paginator
+    *ngIf="totalItems > 0"
+    [pageSizeOptions]="[5, 10]"
+    [pageIndex]="page - 1"
+    [pageSize]="itemsPerPage"
+    [length]="totalItems"
+    (page)="handlePageChange($event)"></mat-paginator>
+</div>

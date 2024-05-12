@@ -1,0 +1,16 @@
+<div class="category-item">
+  <div class="category-header">
+    <h5 class="category-name">{{ category.name }}</h5>
+  </div>
+
+  <div class="category-body">
+    <p>
+      <mat-icon class="icon">book</mat-icon>
+      {{ category.courseCount }} khóa học
+    </p>
+  </div>
+
+  <div class="buttons">
+    <mat-icon (click)="delete($event)" class="icon delete" *ngIf="isYourCategory">delete</mat-icon>
+  </div>
+</div>

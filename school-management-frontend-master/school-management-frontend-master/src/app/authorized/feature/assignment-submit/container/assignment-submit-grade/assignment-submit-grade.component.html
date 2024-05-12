@@ -1,0 +1,7 @@
+<div class="grade">
+  <div>
+    <p class="grade-point">Điểm: {{ grade?.grade }}</p>
+    <p class="grade-message">{{ grade?.message }}</p>
+  </div>
+  <app-primary-button type="button" *ngIf="isYourCourse && warnButtonShow()" (click)="deleteClick()">Chấm lại</app-primary-button>
+</div>

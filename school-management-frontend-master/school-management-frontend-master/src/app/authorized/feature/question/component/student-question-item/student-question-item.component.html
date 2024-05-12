@@ -1,0 +1,39 @@
+<div class="question-item">
+  <p class="text">
+    <span class="question-number"> {{ questionNumber }} </span>
+    {{ question.text }}
+  </p>
+
+  <ng-container *ngIf="!isGraded && !isSubmitted">
+    <ng-container *ngIf="question.isMultipleChoice">
+      <app-question-option-checkbox
+        *ngFor="let option of question.options; let i = index"
+        [showClose]="false"
+        (selectedChange)="onOptionChange(option.id, $event)"
+        [status]="getOptionStatus(option)"
+        [disabled]="isSubmitted"
+        [selected]="option.isChosen || getSelected(option.id)"
+        [label]="getOptionLabel(i) + '. ' + option.text"></app-question-option-checkbox>
+    </ng-container>
+
+    <ng-container *ngIf="!question.isMultipleChoice">
+      <app-question-option-radio
+        (valueChange)="onRadioChange($event)"
+        [showClose]="false"
+        [questionId]="question.id"
+        [disabled]="isSubmitted"
+        [snapshotOptionIds]="snapshotQuestion.snapshotOptionIds"
+        [options]="question.options"></app-question-option-radio>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="isGraded">
+    <app-question-option-without-checkbox
+      [status]="getOptionStatus(option)"
+      [isSelected]="option.isChosen"
+      *ngFor="let option of question.options; let i = index"
+      [showTrash]="false"
+      [showAutorenew]="false"
+      [label]="getOptionLabel(i) + '. ' + option.text"></app-question-option-without-checkbox>
+  </ng-container>
+</div>

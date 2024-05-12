@@ -1,0 +1,12 @@
+<div class="list">
+  <app-course-card [option]="{ haveDelete: true }" class="item" *ngFor="let item of items" [course]="item"></app-course-card>
+</div>
+
+<mat-paginator
+  *ngIf="totalItems > 0"
+  [pageSizeOptions]="[5, 10]"
+  [pageIndex]="page - 1"
+  [pageSize]="itemsPerPage"
+  [length]="totalItems"
+  (page)="handlePageChange($event)"></mat-paginator>
+<p class="text" *ngIf="totalItems === 0">Không có kết quả nào</p>

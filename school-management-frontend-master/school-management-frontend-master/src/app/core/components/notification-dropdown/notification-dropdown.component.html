@@ -1,0 +1,20 @@
+<li class="nav-item dropdown" *ngIf="notificationsPaginated">
+  <button class="nav-link" data-bs-toggle="dropdown">
+    <mat-icon>notifications</mat-icon>
+    <span
+      *ngIf="notificationsPaginated.meta.totalItems"
+      class="position-absolute top-0 start-100 translate-middle badge bg-danger navbar-badge"
+      >{{ notificationsPaginated.meta.totalItems }}</span
+    >
+  </button>
+  <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end notification-dropdown">
+    <li>
+      <app-notification-items [showCheckbox]="false" [notifications]="notificationsPaginated.data"></app-notification-items>
+    </li>
+    <div>
+      <li *ngIf="notificationsPaginated.meta.totalItems"><mat-divider></mat-divider></li>
+      <!-- Repeat for each message, update the link and img source as needed -->
+      <li><a (click)="routeToNotification()" class="dropdown-item dropdown-footer">Xem tất cả</a></li>
+    </div>
+  </ul>
+</li>

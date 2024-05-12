@@ -1,0 +1,25 @@
+<div class="assignment" [class.completed]="assignment.submissionId">
+  <div class="icon-container">
+    <mat-icon class="icon">assignment</mat-icon>
+  </div>
+  <div class="assignment-details">
+    <p class="assignment-name">{{ assignment.name }}</p>
+    <p class="assignment-due">Hạn nộp: {{ assignment.dueDate | date: 'dd/MM/yyyy' }}</p>
+  </div>
+
+  <div class="button-container">
+    <!-- <app-warn-button *ngIf="!isStudent()" (click)="delete()">Xóa</app-warn-button> -->
+    <mat-icon class="delete-icon" *ngIf="!isStudent() && isYourCourse" (click)="delete($event)">delete</mat-icon>
+    <div *ngIf="isStudent()" class="d-flex">
+      <span *ngIf="isLate(assignment)">
+        <mat-icon class="late-icon">warning</mat-icon>
+        <p class="assignment-due late">Nộp trễ</p>
+      </span>
+      <span *ngIf="isMissing(assignment)">
+        <mat-icon class="missing-icon">error_outline</mat-icon>
+        <p class="assignment-due missing">Quên nộp</p>
+      </span>
+      <mat-icon *ngIf="assignment.submissionId" class="completed-icon">check_circle</mat-icon>
+    </div>
+  </div>
+</div>

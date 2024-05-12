@@ -1,0 +1,79 @@
+.card-image {
+  background-size: cover;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .thumbnail-text {
+    font-size: 1.5em; /* Adjust size as needed */
+    color: #fff; /* Default text color, consider dynamic adjustment based on background */
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 1); /* Text shadow for contrast */
+    padding: 1em; /* Ensure some padding */
+  }
+}
+
+.card-tool {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  mat-icon {
+    font-size: 1.5rem;
+  }
+}
+
+.card-tool mat-icon {
+  font-size: 24px; /* Adjust the icon size as needed */
+  margin: 0 2px; /* Space between icons */
+  cursor: pointer; /* Indicates the icon is clickable */
+  color: #616161; /* Icon color for better contrast with the background */
+  transition:
+    color 0.2s,
+    transform 0.2s; /* Smooth transitions for color and scaling */
+}
+
+.card-tool mat-icon:hover {
+  color: #000; /* Darker color on hover for visual feedback */
+  transform: scale(1.2); /* Slightly enlarge icons on hover for emphasis */
+}
+
+.card {
+  position: relative;
+  margin: 1rem;
+  font-size: 1rem;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+  transition:
+    transform 0.1s ease-in-out,
+    box-shadow 0.1s;
+}
+
+// .card:hover {
+//   transform: translateY(-0.5rem) scale(1.0125);
+//   box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
+// }
+
+.card-description {
+  display: block;
+  padding: 1em 0.5em;
+  color: #515151;
+  text-decoration: none;
+}
+
+.card-description > h2 {
+  margin: 0 0 0.5em;
+}
+
+.card-description > p {
+  margin: 0;
+}

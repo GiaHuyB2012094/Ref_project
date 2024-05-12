@@ -1,0 +1,15 @@
+<div class="form">
+  <h1 class="title">Tạo danh mục câu hỏi</h1>
+  <form (ngSubmit)="store()">
+    <app-text-input-group
+      (valueChange)="saveToTemporaryStorage()"
+      icon="category"
+      [label]="'Tên'"
+      [(value)]="dto.name"
+      [name]="'name'"
+      [required]="true"></app-text-input-group>
+    <div class="d-flex justify-content-end">
+      <app-primary-button [disabled]="!dto.name?.trim()">Tạo</app-primary-button>
+    </div>
+  </form>
+</div>

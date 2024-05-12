@@ -1,0 +1,14 @@
+<div>
+  <h2>Khóa học của tôi</h2>
+  <ng-container *ngIf="isStudent">
+    <app-course-cards
+      [options]="{ haveDelete: false }"
+      [showStudentCount]="false"
+      [assignmentIcon]="true"
+      [courses]="myCourses"></app-course-cards>
+  </ng-container>
+
+  <ng-container *ngIf="isTeacher">
+    <app-teacher-course-list></app-teacher-course-list>
+  </ng-container>
+</div>

@@ -1,0 +1,21 @@
+<div class="item" *ngIf="attachment">
+  <app-video-file *ngIf="isVideo()" class="svg"></app-video-file>
+  <app-code-file *ngIf="isCode()" class="svg"></app-code-file>
+  <app-basic-file *ngIf="!isVideo() && !isCode()" class="svg"></app-basic-file>
+
+  <div class="filename">
+    <p>{{ attachment.name }}</p>
+    <div class="filedata">
+      <span>{{ attachment.createdAt | date: 'short' }}</span>
+      <span>●</span>
+      <span>{{ attachment.size }}</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <!-- <app-primary-button class="button">Tải xuống</app-primary-button> -->
+    <!-- <app-warn-button class="button" (click)="delete()">Xóa</app-warn-button> -->
+    <mat-icon class="icon icon-download" (click)="download()">download</mat-icon>
+    <mat-icon class="icon icon-delete" (click)="delete()" *ngIf="!isStudent && isYourCourse">delete</mat-icon>
+  </div>
+</div>

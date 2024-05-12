@@ -1,0 +1,30 @@
+<div class="student-item">
+  <div>
+    <img [src]="getAvatarUrl()" />
+
+    <p>{{ student.displayName }}</p>
+  </div>
+
+  <div class="phone">
+    <mat-icon>phone</mat-icon>
+    SĐT:
+    <span>{{ student.phone }}</span>
+  </div>
+
+  <div class="email">
+    <mat-icon>email</mat-icon>
+    Email:
+    <span>{{ student.email }}</span>
+  </div>
+
+  <div class="username">
+    <mat-icon>person</mat-icon>
+    Username:
+    <span>{{ student.username }}</span>
+  </div>
+
+  <div class="buttons">
+    <mat-icon (click)="edit()" class="edit">edit</mat-icon>
+    <mat-icon (click)="delete()" class="delete">delete</mat-icon>
+  </div>
+</div>
